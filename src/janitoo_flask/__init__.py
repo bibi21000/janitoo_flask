@@ -167,9 +167,9 @@ class FlaskJanitoo(object):
                 self._listener.join()
             except RuntimeError:
                 pass
+            self._listener = None
         finally:
             self._listener_lock.release()
-        self._listener = None
 
     def extend_blueprints(self, group):
         """
@@ -203,7 +203,7 @@ class FlaskJanitoo(object):
         """
         """
         logger.info("[ %s ] - Received signal %s", self.__class__.__name__, signal)
-        if self._listener.is_alive():
+        if self._listener and self._listener.is_alive():
             self._listener.stop()
             try:
                 self._listener.join()
