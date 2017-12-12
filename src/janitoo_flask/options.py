@@ -28,7 +28,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 import os
-import ConfigParser
+#~ import ConfigParser
 import socket
 
 from janitoo.options import JNTOptions
