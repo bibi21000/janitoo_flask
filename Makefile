@@ -1,8 +1,7 @@
 # Makefile for janitoo
 #
 
-include ../janitoo/Makefile.janitoo
-
+include Makefile.janitoo
 -include Makefile.local
 
 NOSECOVER     = --cover-package=${MODULENAME} --with-coverage --cover-inclusive --cover-html --cover-html-dir=${BUILDDIR}/docs/html/tools/coverage --with-html --html-file=${BUILDDIR}/docs/html/tools/nosetests/index.html
