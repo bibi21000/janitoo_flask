@@ -53,6 +53,8 @@ import signal, sys
 import os, errno
 import threading
 
+from six import iteritems
+
 from pkg_resources import iter_entry_points
 
 from janitoo_flask.listener import ListenerThread
@@ -109,6 +111,8 @@ class FlaskJanitoo(object):
 
         self._event_manager = EventManager(self._app)
         self._app.jinja_env.globals["emit_event"] = self._event_manager.template_emit
+        self._app.jinja_env.globals['iteritems'] = iteritems
+
         if not hasattr(self._app, 'extensions'):
             self._app.extensions = {}
         self._app.extensions['options'] = self.options
